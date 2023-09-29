@@ -1,14 +1,9 @@
+'''
+App.py handles all interaction between console and user. It contains the function used to make text prompts letting players choose what they want to do.
+'''
+
 import Game
-
-#Class atributes
-global firePower
-global technique
-global agility
-global health
-
-global option1Selected
-global option2Selected
-
+#TODO: put input statements in while loops and break only when people give the 2 options presented
 
 '''
 ChalCheck takes 5 Parameters;
@@ -20,12 +15,12 @@ def ChalCheck(prompt, optionOne, techCheckOne, optionTwo, techCheckTwo):
     #presents prompt, choices, and asks for user input
     choice = input(prompt + optionOne + " or " + optionTwo + "? ")
     
-    #checks if input is option one
-    if choice == optionOne:
+    #checks if input is option one, returns true if true
+    if choice.lower() == optionOne.lower():
         return True
 
-    #checks if input is option two
-    elif choice == optionTwo:
+    #checks if input is option two, returns false if true
+    elif choice.lower() == optionTwo.lower():
         return False
 
 
@@ -35,16 +30,16 @@ print("Welcome to Road to Riches! Rules: This is a text based role playing game.
 #lets user select role
 roleChoice = input("Select a role! (Rouge or Enforcer): ")
 
-#selects role based on input
-if roleChoice == "Rouge":
-    print("Rouge selected")
+#changes atributes based on what class is selected 
+Game.updateAttributes(roleChoice)
 
-elif roleChoice == "Enforcer":
-    print("Enforcer selected")
+#debug stuff
+print(Game.firePower, Game.agility, Game.technique, Game.health)
 
-
+"""
 if ChalCheck("You approach a door way with a guard near it. will you run or hide ", "Run", 1, "Hide", 1) == True:
     Game.Roll(1, "You sprint past the guard", "You trip and fall")
 
 else:
     Game.Roll(1, "You hide and remain unoticed", "You make some noise")
+"""
