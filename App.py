@@ -13,15 +13,20 @@ The function uses these inputs to create prompts then calls on Game.py to do the
 '''
 def ChalCheck(prompt, optionOne, techCheckOne, optionTwo, techCheckTwo):
     #presents prompt, choices, and asks for user input
-    choice = input(prompt + optionOne + " or " + optionTwo + "? ")
-    
-    #checks if input is option one, returns true if true
-    if choice.lower() == optionOne.lower():
-        return True
+    while True:
+        choice = input(prompt + optionOne + " or " + optionTwo + "? ")
+        
+        #checks if input is option one, returns true if true
+        if choice.lower() == optionOne.lower():
+            return True
 
-    #checks if input is option two, returns false if true
-    elif choice.lower() == optionTwo.lower():
-        return False
+        #checks if input is option two, returns false if true
+        elif choice.lower() == optionTwo.lower():
+            return False
+        
+        else:
+            print("Please select on of 2 choices")
+            continue
 
 
 #intro
@@ -43,3 +48,5 @@ if ChalCheck("You approach a door way with a guard near it. will you run or hide
 else:
     Game.Roll(1, "You hide and remain unoticed", "You make some noise")
 """
+
+#ChalCheck("You approach a door way with a guard near it. will you run or hide ", "Run", 1, "Hide", 1)

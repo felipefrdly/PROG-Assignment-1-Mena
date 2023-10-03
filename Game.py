@@ -18,15 +18,15 @@ updateAtributes changes the atributes based on what roll is selected in App.py w
 '''
 def updateAttributes(roleName):
     global firePower, technique, agility, health
-    if roleName.lower() == "rouge":
-        print("Rouge selected")
-        firePower = RogueRole.rougeFirepower
-        technique = RogueRole.rougeTechnique
-        agility = RogueRole.rougeAgility
-        health = RogueRole.rougeHealth
+    if roleName.lower() == "rogue":
+        print("Rogue selected")
+        firePower = RogueRole.rogueFirepower
+        technique = RogueRole.rogueTechnique
+        agility = RogueRole.rogueAgility
+        health = RogueRole.rogueHealth
 
-    else:
-        print("Enforcer selected")
+#    else:
+  #      print("Enforcer selected")
 
 
 '''
