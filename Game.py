@@ -19,33 +19,25 @@ updateAtributes changes the atributes based on what roll is selected in App.py w
 def updateAttributes(roleName):
     global firePower, technique, agility, health
     if roleName.lower() == "rogue":
-        print("Rouge selected")
+        print("Rogue selected")
         firePower = RogueRole.rogueFirepower
         technique = RogueRole.rogueTechnique
         agility = RogueRole.rogueAgility
         health = RogueRole.rogueHealth
 
-    else:
-        print("Enforcer selected")
+#    else:
+  #      print("Enforcer selected")
 
 
 '''
-Roll takes 4 parameters;
-teckCheck: This is the number that the dice roll must bee higher then to win, successText and Fail Text: print the outcome of success/failure. attribute: the number added to the roll
-This function handles dice rolling and checking whether that roll is a sucess or a loss
+Roll takes 3 parameters;
+teckCheck: This is the number that the dice roll must bee higher then to win, successText and Fail Text: print the outcome of success/failure
+This function handles dice rolling and checking whether that roll is a sucess or a loss 
 '''
-def Roll(techCheck, successText, failText, attribute):
-    #Generates a number between 1 and 20
-    roll = random.randint(1, 20)
-    
-    #Displays the number the roll must be greater then.
-    print("The Dc is ", techCheck)
-
-    #Displays the number rolled
-    print("you rolled", roll, "+", attribute)
-
-    #adds the attribute to the roll
-    total = roll + attribute
+def Roll(techCheck, successText, failText):
+    roll = random.randint(1, 20) #Generates a number between 1 and 20
+    print("The Dc is ", techCheck) # Displays the number the roll must be greater then.
+    print("you rolled", roll) #Displays the number rolled
     
     #prints the outcome of success/failure depending on the dice roll 
     if roll >= techCheck: 
