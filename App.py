@@ -64,6 +64,14 @@ def EnfoChallengeTwo():
     else: #checks if option 2 is picked
         Game.Roll(12, "The Enforcer points his weapon at the box and fires!, the door flies off and the Enforcer starts collecting the loot. He makes his way towards the escape van", "The Enforcer points his weapon at the box and fires!, but nothing happens. He trys again and again until suddenly the door flies off, that wasted a lot of time.the Enforcer starts collecting the loot. He makes his way towards the escape van", Game.firePower)
 
+def EnfoChallengeThree():
+    if ChalCheck("As the Enforcer moves to the van the banks security pops around the corner! He hides behind a wall and send you a message 'We got trouble! What do I do!' .<1> Run for it! <2> Fire! : ") == True: #checks if option 1 is picked
+        Game.Roll(22, "The Enforcer runs past the guards before they can catch him. He loads the money into the van and gets in the drivers seat.", "The Enforcer runs into the guards! they all fall to the floor and begin to wrestle. After a few minutes the Enforcer manages to escape!. He loads the money into the van and gets into the drivers seat.", Game.agility)
+
+    else: #checks if option 2 is picked
+        Game.Roll(12, "The Enforcer fires his weapon and the guards retreat!, he loads the money into the van and gets in the drivers seat.", "The Enforcer fires his weapon but misses! The guards fire back and start a full on shoot out. After a long fight the guards back down. he loads the money into the van and gets in the drivers seat.", Game.firePower)
+
+
 #intro
 print("""
 Rules:
@@ -103,4 +111,12 @@ if roleChoice.lower() == "rogue":
         print("The Rogue walks out of the bank and towards the escape van. The Job was sloppy but it seems like it all went smoothly. As the Rogue gets into the car to wait red and blue lights flash behind him. You Lose!")
 
 else:
-    print("run enforcer playthrough")
+    EnfoChallengeOne()
+    EnfoChallengeTwo()
+    EnfoChallengeThree()
+
+    if Game.health > 0:
+        print("The Enforcer slams the gas and speeds away with the money. The jobs finished! You Win!")
+
+    else:
+        print("The Enforcer slams the gas but is faced with waves of police cars! The job was sloppy. You Lose!")
