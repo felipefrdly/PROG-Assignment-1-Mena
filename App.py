@@ -40,16 +40,27 @@ roleChoice = input("Select a role! (Rouge or Enforcer): ") #asks the user what i
 Game.updateAttributes(roleChoice) #changes atributes based on what class is selected 
 
 '''
-This Function combines the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen
+This Function combines the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen. All the rouge challenges are the.
 '''
 def RogueChallengeOne():
     if ChalCheck("The Rogue arrives at the back of the bank. You see a big steel door with a lock on it, the Rogue stops and sends you a message. 'Doors locked, what should I do?'. <1> Pick the lock <2> Shoot the lock off: ") == True: #checks if option 1 is picked
-        Game.Roll(12, "The Rogue moves his hands with finesse, the lock snaps and falls off.", "The Rogue moves the pick into the lock. It gets stuck as he swings the lock around making tons of noise, after enough effort the lock falls off,", Game.agility)
+        Game.Roll(12, "The Rogue moves his hands with finesse, the lock snaps and falls off.", "The Rogue moves the pick into the lock. It gets stuck as he swings the lock around making tons of noise, after enough effort the lock falls off.", Game.agility)
 
     else: #checks if option 2 is picked
-        Game.Roll(12, "The Rouge aims his weapon at the lock, one clean shot and the lock falls off", "The Rogue aims his weapon at the lock, his hand whiffs and he hits the door knob instead making a booming sound. The door opens", Game.firePower)
+        Game.Roll(12, "The Rouge aims his weapon at the lock, one clean shot and the lock falls off.", "The Rogue aims his weapon at the lock, his hand whiffs and he hits the door knob instead making a booming sound. The door opens.", Game.firePower)
+
+def RogueChallengeTwo():
+    if ChalCheck("The Rogue makes his way through the building and moves towards the security room. The door requires a keycard to open. The Rogue messages you 'Boss, I can't pick this lock we need to find another way in' Out of his camera feed you spot keycard on a desk and a vent leading to the room. <1> Swipe the card <2> Move through the vent: ") == True: 
+        Game.Roll(12, "The Rogue moves past the table and swipes the card. He moves into the room and towards the computer.", "The Rogue moves past the table and as he moves to swipe it, it falls, people turn but he moves down and grabs the card.", Game.agility)
+
+    else: 
+        Game.Roll(12, "The Rogue sneaks towards the vent and takes the grate off, sliding in and moving towards the computer.", "The Rogue moves sneaks towards the vent, as he takes the grate off it falls to the floor and bangs, he sprints in before anyone sees and moves towards the computer.", Game.technique)
+
+
+
 
 RogueChallengeOne()
+RogueChallengeTwo()
 
 
 
