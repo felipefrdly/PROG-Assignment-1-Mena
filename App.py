@@ -23,22 +23,6 @@ def ChalCheck(prompt):
             print("Please select on of 2 choices")
             continue
 
-
-#intro
-print("""
-Rules:
-Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory.
-      
-Intro:
-You and your crew have been planning this hiest for months. You're in charge of the whole opearation, you call the shots and your henchmen listen. The plan is simple the Rogue
-will infiltrate the building, disable security systems, and prepare the escape. The enforcer will move into the bank, calm down the people, collect the money, and escape.
-You'll be overseeing this whole operation, lets bring it home.  
-""")
-
-roleChoice = input("Select a role! (Rouge or Enforcer): ") #asks the user what input they would like
-
-Game.updateAttributes(roleChoice) #changes atributes based on what class is selected 
-
 '''
 This Function combines the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen. All the rouge challenges are the.
 '''
@@ -58,15 +42,45 @@ def RogueChallengeTwo():
 
 def RogueChallengeThree():
     if ChalCheck("The Rogue arrives at the security terminal, he has to disable it. As the computer boots up a firewall opens up 'Damn! now what Boss!'. <1> Hack the computer. <2> Shoot the thing!: "):
-        Game.Roll(12, "The Rogue quickly moves through each security hoop, he makes it to the desktop and turns off security to the vault. he moves towards the exit", "Security is tighter then he thought, he makes it through but triggers some security hoops, the bank knows somethings wrong. he moves towards the exit")
+        Game.Roll(12, "The Rogue quickly moves through each security hoop, he makes it to the desktop and turns off security to the vault. he moves towards the exit", "Security is tighter then he thought, he makes it through but triggers some security hoops, the bank knows somethings wrong. he moves towards the exit", Game.technique)
 
     else: #checks if option 2 is picked
-        Game.Roll(12, "The Rogue looks at the computer, aims, and fires! The computer turns off, he moves towards the exit", "The Rogue looks at the computer, aims and fires! It works! a little too well, it starts smoking. he moves towards the exit")
+        Game.Roll(12, "The Rogue looks at the computer, aims, and fires! The computer turns off, he moves towards the exit", "The Rogue looks at the computer, aims and fires! It works! a little too well, it starts smoking. he moves towards the exit", Game.firePower)
 
+#RogueChallengeOne()
+#RogueChallengeTwo()
+#RogueChallengeThree()
 
+#intro
+print("""
+Rules:
+Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory.
+      
+Intro:
+You and your crew have been planning this hiest for months. You're in charge of the whole opearation, you call the shots and your henchmen listen. The plan is simple the Rogue
+will infiltrate the building, disable security systems, and prepare the escape. The enforcer will move into the bank, calm down the people, collect the money, and escape.
+You'll be overseeing this whole operation, lets bring it home.  
+""")
 
-RogueChallengeOne()
-RogueChallengeTwo()
-RogueChallengeThree()
+while True:
+    roleChoice = input("Select a role! (Rogue or Enforcer): ") #asks the user what input they would like
 
+    if roleChoice.lower() == "rogue":
+        break
 
+    elif roleChoice.lower() == "enforcer":
+        break
+
+    else:
+        print("Please select on of 2 choices")
+        continue
+
+Game.updateAttributes(roleChoice) #changes atributes based on what class is selected
+
+if roleChoice.lower() == "rogue":
+    RogueChallengeOne()
+    RogueChallengeTwo()
+    RogueChallengeThree()
+
+else:
+    print("run enforcer playthrough")
