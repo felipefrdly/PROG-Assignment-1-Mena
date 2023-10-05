@@ -51,16 +51,22 @@ def RogueChallengeOne():
 
 def RogueChallengeTwo():
     if ChalCheck("The Rogue makes his way through the building and moves towards the security room. The door requires a keycard to open. The Rogue messages you 'Boss, I can't pick this lock we need to find another way in' Out of his camera feed you spot keycard on a desk and a vent leading to the room. <1> Swipe the card <2> Move through the vent: ") == True: 
-        Game.Roll(12, "The Rogue moves past the table and swipes the card. He moves into the room and towards the computer.", "The Rogue moves past the table and as he moves to swipe it, it falls, people turn but he moves down and grabs the card.", Game.agility)
+        Game.Roll(12, "The Rogue moves past the table and swipes the card. He moves into the room and towards the computer.", "The Rogue moves past the table and as he moves to swipe it, it falls, people turn but he moves down and grabs the card. He moves into the room and towards the computer ", Game.agility)
 
     else: 
         Game.Roll(12, "The Rogue sneaks towards the vent and takes the grate off, sliding in and moving towards the computer.", "The Rogue moves sneaks towards the vent, as he takes the grate off it falls to the floor and bangs, he sprints in before anyone sees and moves towards the computer.", Game.technique)
 
+def RogueChallengeThree():
+    if ChalCheck("The Rogue arrives at the security terminal, he has to disable it. As the computer boots up a firewall opens up 'Damn! now what Boss!'. <1> Hack the computer. <2> Shoot the thing!: "):
+        Game.Roll(12, "The Rogue quickly moves through each security hoop, he makes it to the desktop and turns off security to the vault. he moves towards the exit", "Security is tighter then he thought, he makes it through but triggers some security hoops, the bank knows somethings wrong. he moves towards the exit")
+
+    else: #checks if option 2 is picked
+        Game.Roll(12, "The Rogue looks at the computer, aims, and fires! The computer turns off, he moves towards the exit", "The Rogue looks at the computer, aims and fires! It works! a little too well, it starts smoking. he moves towards the exit")
 
 
 
 RogueChallengeOne()
 RogueChallengeTwo()
-
+RogueChallengeThree()
 
 
