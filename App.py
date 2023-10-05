@@ -24,37 +24,35 @@ def ChalCheck(prompt):
             continue
 
 '''
-This Function combines the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen. All the rouge challenges are the.
+These Functions combine the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen. All the rogues challenges are the.
 '''
 def RogueChallengeOne():
     if ChalCheck("The Rogue arrives at the back of the bank. You see a big steel door with a lock on it, the Rogue stops and sends you a message. 'Doors locked, what should I do?'. <1> Pick the lock <2> Shoot the lock off: ") == True: #checks if option 1 is picked
-        Game.Roll(12, "The Rogue moves his hands with finesse, the lock snaps and falls off.", "The Rogue moves the pick into the lock. It gets stuck as he swings the lock around making tons of noise, after enough effort the lock falls off.", Game.agility)
+        Game.Roll(22, "The Rogue moves his hands with finesse, the lock snaps and falls off.", "The Rogue moves the pick into the lock. It gets stuck as he swings the lock around making tons of noise, after enough effort the lock falls off.", Game.agility)
 
     else: #checks if option 2 is picked
         Game.Roll(12, "The Rouge aims his weapon at the lock, one clean shot and the lock falls off.", "The Rogue aims his weapon at the lock, his hand whiffs and he hits the door knob instead making a booming sound. The door opens.", Game.firePower)
 
 def RogueChallengeTwo():
     if ChalCheck("The Rogue makes his way through the building and moves towards the security room. The door requires a keycard to open. The Rogue messages you 'Boss, I can't pick this lock we need to find another way in' Out of his camera feed you spot keycard on a desk and a vent leading to the room. <1> Swipe the card <2> Move through the vent: ") == True: 
-        Game.Roll(12, "The Rogue moves past the table and swipes the card. He moves into the room and towards the computer.", "The Rogue moves past the table and as he moves to swipe it, it falls, people turn but he moves down and grabs the card. He moves into the room and towards the computer ", Game.agility)
+        Game.Roll(22, "The Rogue moves past the table and swipes the card. He moves into the room and towards the computer.", "The Rogue moves past the table and as he moves to swipe it, it falls, people turn but he moves down and grabs the card. He moves into the room and towards the computer ", Game.agility)
 
     else: 
         Game.Roll(12, "The Rogue sneaks towards the vent and takes the grate off, sliding in and moving towards the computer.", "The Rogue moves sneaks towards the vent, as he takes the grate off it falls to the floor and bangs, he sprints in before anyone sees and moves towards the computer.", Game.technique)
 
 def RogueChallengeThree():
     if ChalCheck("The Rogue arrives at the security terminal, he has to disable it. As the computer boots up a firewall opens up 'Damn! now what Boss!'. <1> Hack the computer. <2> Shoot the thing!: "):
-        Game.Roll(12, "The Rogue quickly moves through each security hoop, he makes it to the desktop and turns off security to the vault. he moves towards the exit", "Security is tighter then he thought, he makes it through but triggers some security hoops, the bank knows somethings wrong. he moves towards the exit", Game.technique)
+        Game.Roll(22, "The Rogue quickly moves through each security hoop, he makes it to the desktop and turns off security to the vault. he moves towards the exit", "Security is tighter then he thought, he makes it through but triggers some security hoops, the bank knows somethings wrong. he moves towards the exit", Game.technique)
 
     else: #checks if option 2 is picked
         Game.Roll(12, "The Rogue looks at the computer, aims, and fires! The computer turns off, he moves towards the exit", "The Rogue looks at the computer, aims and fires! It works! a little too well, it starts smoking. he moves towards the exit", Game.firePower)
 
-#RogueChallengeOne()
-#RogueChallengeTwo()
-#RogueChallengeThree()
+
 
 #intro
 print("""
 Rules:
-Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory.
+Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory. Each roll can be succeed or failed, your successes and failures change your outcome
       
 Intro:
 You and your crew have been planning this hiest for months. You're in charge of the whole opearation, you call the shots and your henchmen listen. The plan is simple the Rogue
@@ -62,7 +60,7 @@ will infiltrate the building, disable security systems, and prepare the escape. 
 You'll be overseeing this whole operation, lets bring it home.  
 """)
 
-while True:
+while True: #loops until roleChoice is rogue or enforcer
     roleChoice = input("Select a role! (Rogue or Enforcer): ") #asks the user what input they would like
 
     if roleChoice.lower() == "rogue":
@@ -77,10 +75,17 @@ while True:
 
 Game.updateAttributes(roleChoice) #changes atributes based on what class is selected
 
+#changes what challenges the challenges the player goes through based on the role chosen 
 if roleChoice.lower() == "rogue":
     RogueChallengeOne()
     RogueChallengeTwo()
     RogueChallengeThree()
+
+    if Game.health > 0: #if the player wins all 3 challenges they get the win text
+        print("The Rogue walks out of the bank and towards the escape van. The coast is clear the rest of the job is the Enforcers hands. You Win!")
+    
+    else: #if the player wins all 3 challenges they get the lose text
+        print("The Rogue walks out of the bank and towards the escape van. The Job was sloppy but it seems like it all went smoothly. As the Rogue gets into the car to wait red and blue lights flash behind him. You Lose!")
 
 else:
     print("run enforcer playthrough")

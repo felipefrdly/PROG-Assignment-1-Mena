@@ -49,4 +49,4 @@ def Roll(techCheck, successText, failText, attribute):
         print(successText)
     else:
         print(failText)
-        health = health - 5
+        health -= 1
