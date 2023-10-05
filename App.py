@@ -51,11 +51,18 @@ def RogueChallengeThree():
 All of the Enforcer Challenges these functions combine the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen. All the Enforcer challenges are the.
 '''
 def EnfoChallengeOne():
-    if ChalCheck("The Enforcer moves towards the front of the building. At this point the Rogues done his job now comes the Enforcers job he moves in the bank. The banks packed with people He sends you a message 'Alright Boss, How do I handle this one?'. <1> Talk to the crowd <2> Intimidate the crowd: ") == True: #checks if option 1 is picked
-        Game.Roll(22, "The Enforcer gets up on the table and shouts 'Everyone listen up! This is a robbery! Cooperate and it will all go smoothly!' the crowd moves from fear to understanding as they move to the floor. The enforcer moves towards the vault", "The enforcer gets up on the table and shouts 'Everyone listen up! This is a robbery! Cooperate and it will all go smoothly!' the crowd moves from fear to panic as they move to the floor. The enforcer moves towards the vault. Out of the corner of the camera feed you spot people reaching for their phones.")
+    if ChalCheck("The Enforcer moves towards the front of the building. At this point the Rogues done his job now comes the Enforcers job he moves in the bank. The banks packed with people He sends you a message 'Alright Boss, How do I handle this one?'. <1> Run towards the shutter control.  <2> Intimidate the crowd: ") == True: #checks if option 1 is picked
+        Game.Roll(22, "The Enforcer sprints towards the shutter controls and hits the button! The shutters fall to the floor and the Enforcer shouts 'Nobody move! I'll open the shutters when this is over!' the crowd nods and gets on the floor The Enforcer moves towards the vault", "The Enforcer sprints towards the shutters controls but falls!. As he gets up to hit the button you notice a handful of people have ran away!. The Enforcer shouts 'Nobody move! On the floor now!' the rest of the crowd cooperates. The Enforcer moves towards the vault",Game.agility)
 
     else: #checks if option 2 is picked
-        Game.Roll(12, "The Enforcer moves towards the middle of the building and fires his weapon up in the air, and shouts 'Get on the floor!'. The crowd quickly hits the floor. The Enforcer moves towards the vault", "The Enforcer moves towards the middle of the building and fires his weapon up in the air but before he can shout some people run away. the rest of the crowd cooperates and the Enforcer moves towards the vault" )
+        Game.Roll(12, "The Enforcer moves towards the middle of the building and fires his weapon up in the air, and shouts 'Get on the floor!'. The crowd quickly hits the floor. The Enforcer moves towards the vault", "The Enforcer moves towards the middle of the building and fires his weapon up in the air but before he can shout some people run away. the rest of the crowd cooperates and the Enforcer moves towards the vault", Game.firePower)
+
+def EnfoChallengeTwo():
+    if ChalCheck("The Enforcer arrives at the vault, the door opens seemlessly. Looks like the Rogue did his job, The Enforcer starts bagging cash, you both notice some safe deposit boxes. The Enforcer sends you a message 'Looks like some extra loot! How do we crack it open!'. <1> Pick the lock <2>: Shoot it open: ") == True: #checks if option 1 is picked
+        Game.Roll(22, "The Enforcer swiftly picks the lock and starts bagging the loot and makes his way towards the escape van.", "The Enforcer tries to pick the lock but can't seem to crack it. It takes a long time, but the box opens and steals the loot. He makes his way towards the escape van", Game.technique)
+
+    else: #checks if option 2 is picked
+        Game.Roll(12, "The Enforcer points his weapon at the box and fires!, the door flies off and the Enforcer starts collecting the loot. He makes his way towards the escape van", "The Enforcer points his weapon at the box and fires!, but nothing happens. He trys again and again until suddenly the door flies off, that wasted a lot of time.the Enforcer starts collecting the loot. He makes his way towards the escape van", Game.firePower)
 
 #intro
 print("""
