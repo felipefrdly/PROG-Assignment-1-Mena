@@ -5,3 +5,4 @@ rogueAgility = 3
 rogueTechnique = 3
 rogueFirepower = 0
 rogueHealth = 15
+

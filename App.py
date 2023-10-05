@@ -6,22 +6,17 @@ import Game
 #TODO: put input statements in while loops and break only when people give the 2 options presented
 
 '''
-ChalCheck takes 5 Parameters;
-prompt: the players options, optionOne/optionTwo: the players choices 
-techCheckOne/techCheckTwo:The number the players roll must be higher then presented to the player
-The function uses these inputs to create prompts then calls on Game.py to do the math if it suceeds or fails
+ChalCheck takes 1 Parameter it creates prompts and lets the user choose one or the other
 '''
-def ChalCheck(prompt, optionOne, techCheckOne, optionTwo, techCheckTwo):
+def ChalCheck(prompt):
     #presents prompt, choices, and asks for user input
-    while True:
-        choice = input(prompt + optionOne + " or " + optionTwo + "? ")
+    while True: #loops until a
+        choice = int(input(prompt))
         
-        #checks if input is option one, returns true if true
-        if choice.lower() == optionOne.lower():
+        if choice == 1: #checks if input is option one, returns true if true
             return True
 
-        #checks if input is option two, returns false if true
-        elif choice.lower() == optionTwo.lower():
+        elif choice == 2: #checks if input is option two, returns false if true
             return False
         
         else:
@@ -30,23 +25,31 @@ def ChalCheck(prompt, optionOne, techCheckOne, optionTwo, techCheckTwo):
 
 
 #intro
-print("Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory.")
+print("""
+Rules:
+Welcome to Road to Riches! Rules: This is a text based role playing game. You play as one of two bank robbers, you pick where the robbers go and a dice determines your victory.
+      
+Intro:
+You and your crew have been planning this hiest for months. You're in charge of the whole opearation, you call the shots and your henchmen listen. The plan is simple the Rogue
+will infiltrate the building, disable security systems, and prepare the escape. The enforcer will move into the bank, calm down the people, collect the money, and escape.
+You'll be overseeing this whole operation, lets bring it home.  
+""")
 
-#lets user select role
-roleChoice = input("Select a role! (Rouge or Enforcer): ")
+roleChoice = input("Select a role! (Rouge or Enforcer): ") #asks the user what input they would like
 
-#changes atributes based on what class is selected 
-Game.updateAttributes(roleChoice)
+Game.updateAttributes(roleChoice) #changes atributes based on what class is selected 
 
-#debug stuff
-print(Game.firePower, Game.agility, Game.technique, Game.health)
+'''
+This Function combines the Chalcheck function and the Roll function from Game.py to make the gameplay loop,  Chalcheck presents an option and the Roll is changed based on whatever option is chosen
+'''
+def RogueChallengeOne():
+    if ChalCheck("The Rogue arrives at the back of the bank. You see a big steel door with a lock on it, the Rogue stops and sends you a message. 'Doors locked, what should I do?'. <1> Pick the lock <2> Shoot the lock off: ") == True: #checks if option 1 is picked
+        Game.Roll(12, "The Rogue moves his hands with finesse, the lock snaps and falls off.", "The Rogue moves the pick into the lock. It gets stuck as he swings the lock around making tons of noise, after enough effort the lock falls off,", Game.agility)
 
-"""
-if ChalCheck("You approach a door way with a guard near it. will you run or hide ", "Run", 1, "Hide", 1) == True:
-    Game.Roll(1, "You sprint past the guard", "You trip and fall")
+    else: #checks if option 2 is picked
+        Game.Roll(12, "The Rouge aims his weapon at the lock, one clean shot and the lock falls off", "The Rogue aims his weapon at the lock, his hand whiffs and he hits the door knob instead making a booming sound. The door opens", Game.firePower)
 
-else:
-    Game.Roll(1, "You hide and remain unoticed", "You make some noise")
-"""
+RogueChallengeOne()
 
-#ChalCheck("You approach a door way with a guard near it. will you run or hide ", "Run", 1, "Hide", 1)
+
+
