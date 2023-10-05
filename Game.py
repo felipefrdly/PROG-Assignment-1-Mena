@@ -29,6 +29,10 @@ def updateAttributes(roleName):
 
     else:
         print("Enforcer selected")
+        firePower = EnforcerRole.enforcerFirepower
+        technique = EnforcerRole.enforcerTechnique
+        agility = EnforcerRole.enforcerAgility
+        health = EnforcerRole.enforcerHealth
 
 
 '''
