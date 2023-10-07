@@ -103,21 +103,11 @@ if roleChoice.lower() == "rogue":
     RogueChallengeTwo()
     RogueChallengeThree()
     print("")
-
-    if Game.health > 0: #if the player wins all 3 challenges they get the win text
-        print("The Rogue walks out of the bank and towards the escape van. The coast is clear the rest of the job is the Enforcers hands. You Win!")
-    
-    else: #if the player wins all 3 challenges they get the lose text
-        print("The Rogue walks out of the bank and towards the escape van. The Job was sloppy but it seems like it all went smoothly. As the Rogue gets into the car to wait red and blue lights flash behind him. You Lose!")
+    Game.winCon("The Rogue walks out of the bank and towards the escape van. The coast is clear the rest of the job is the Enforcers hands. You Win!","The Rogue walks out of the bank and towards the escape van. The Job was sloppy but it seems like it all went smoothly. As the Rogue gets into the car to wait red and blue lights flash behind him. You Lose!")
 
 else:
     EnfoChallengeOne()
     EnfoChallengeTwo()
     EnfoChallengeThree()
     print("")
-    
-    if Game.health > 0: #if the player wins all 3 challenges they get the win text
-        print("The Enforcer slams the gas and speeds away with the money. The jobs finished! You Win!")
-
-    else: #if the player wins all 3 challenges they get the lose text
-        print("The Enforcer slams the gas but is faced with waves of police cars! The job was sloppy. You Lose!")
+    Game.winCon("The Enforcer slams the gas and speeds away with the money. The jobs finished! You Win!", "The Enforcer slams the gas but is faced with waves of police cars! The job was sloppy. You Lose!")

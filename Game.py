@@ -64,3 +64,10 @@ def Roll(techCheck, successText, failText, attribute):
     else:
         print(failText)
         health -= 1
+
+def winCon(winText, loseText):
+    if health > 0: #if the player wins all 3 challenges they get the win text
+        print(winText)
+    
+    else: #if the player wins all 3 challenges they get the lose text
+        print(loseText)
