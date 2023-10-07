@@ -43,7 +43,6 @@ This function handles dice rolling and checking whether that roll is a sucess or
 def Roll(techCheck, successText, failText, attribute):
     global health
     roll = random.randint(1, 20) #Generates a number between 1 and 20
-
     print("To pass you must roll a ", techCheck, "or higher!" "\n") # Displays the number the roll must be greater or = then then.
     input("Roll the dice!(Hit Enter!): ""\n") # Asks the user if they would like to roll, if they input anything the code continues
     print("You rolled", roll, "+", attribute, "Skill Bonus!\n") #Displays the number rolled
@@ -53,12 +52,11 @@ def Roll(techCheck, successText, failText, attribute):
     #Checks if the rolls are 1 or 20, the highest and lowest rolls. If one of those are true it rewards or punishes the plater
     if roll == 1:
         print("Critical Fail!\n")
-        print(failText)
         health -= 2
     
     elif roll == 20:
         print("Critical Success!\n")
-        print(successText)
+        health += 1
 
     #prints the outcome of success/failure depending on the dice roll 
     if total >= techCheck: 

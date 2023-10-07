@@ -10,12 +10,12 @@ ChalCheck takes 1 Parameter it creates prompts and lets the user choose one or t
 def ChalCheck(prompt):
     #presents prompt, choices, and asks for user input
     while True: #loops until either 1 or 2 is selected
-        choice = int(input(prompt))
-        
-        if choice == 1: #checks if input is option one, returns true if true
+        choice = input(prompt)
+
+        if choice == "1": #checks if input is option one, returns true if true
             return True
 
-        elif choice == 2: #checks if input is option two, returns false if true
+        elif choice == "2": #checks if input is option two, returns false if true
             return False
         
         else:
