@@ -21,14 +21,14 @@ def updateAttributes(roleName):
 
     if roleName.lower() == "rogue": # checks if input is one of the 2 rolls
         #update the empty attributes with the rogues attributes
-        print("Rogue selected")
+        print("\n""Rogue selected""\n")
         firePower = RogueRole.rogueFirepower
         technique = RogueRole.rogueTechnique
         agility = RogueRole.rogueAgility
         health = RogueRole.rogueHealth
 
     else:
-        print("Enforcer selected")
+        print("\n""Enforcer selected""\n")
         firePower = EnforcerRole.enforcerFirepower
         technique = EnforcerRole.enforcerTechnique
         agility = EnforcerRole.enforcerAgility
@@ -43,11 +43,23 @@ This function handles dice rolling and checking whether that roll is a sucess or
 def Roll(techCheck, successText, failText, attribute):
     global health
     roll = random.randint(1, 20) #Generates a number between 1 and 20
-    print("The Dc is ", techCheck) # Displays the number the roll must be greater then.
-    print("you rolled", roll, "+", attribute) #Displays the number rolled
 
+    print("To pass you must roll a ", techCheck, "or higher!" "\n") # Displays the number the roll must be greater or = then then.
+    input("Roll the dice!(Hit Enter!): ""\n") # Asks the user if they would like to roll, if they input anything the code continues
+    print("You rolled", roll, "+", attribute, "Skill Bonus!\n") #Displays the number rolled
     total = roll + attribute #adds roll and attribute
+    print("Total: ", total)
     
+    #Checks if the rolls are 1 or 20, the highest and lowest rolls. If one of those are true it rewards or punishes the plater
+    if roll == 1:
+        print("Critical Fail!\n")
+        print(failText)
+        health -= 2
+    
+    elif roll == 20:
+        print("Critical Success!\n")
+        print(successText)
+
     #prints the outcome of success/failure depending on the dice roll 
     if total >= techCheck: 
         print(successText)
